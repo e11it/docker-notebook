@@ -1,5 +1,8 @@
 FROM ipython/notebook
 
-RUN pip install --upgrade pip && \
-    pip install pandas jupyter requests plotly &&\
-    pip2 install pandas jupyter requests plotly
+# python requirements
+ADD ./requirements.txt /tmp/
+RUN pip3 install --no-cache-dir --upgrade -r /tmp/requirements.txt && \
+    pip3 freeze
+RUN pip2 install --no-cache-dir --upgrade -r /tmp/requirements.txt && \
+    pip2 freeze
