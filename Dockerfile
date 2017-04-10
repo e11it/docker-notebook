@@ -19,6 +19,8 @@ RUN  ln -s /usr/local/instantclient_12_1 /usr/local/instantclient \
     && ln -s /usr/local/instantclient/libocci.so.12.1 /usr/local/instantclient/libocci.so
 
 ENV LD_LIBRARY_PATH /usr/lib:/usr/local/lib:/usr/local/instantclient
+ENV ORACLE_HOME /usr/local/instantclient/
+RUN ldconfig
 
 # python requirements
 ADD ./requirements.txt /tmp/
